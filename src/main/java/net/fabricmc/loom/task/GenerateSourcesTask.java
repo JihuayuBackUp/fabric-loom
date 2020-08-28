@@ -96,6 +96,7 @@ public class GenerateSourcesTask extends AbstractLoomTask {
 
 		try (StitchUtil.FileSystemDelegate inFs = StitchUtil.getJarFileSystem(oldCompiledJar.toFile(), true);
 			StitchUtil.FileSystemDelegate outFs = StitchUtil.getJarFileSystem(linemappedJarDestination.toFile(), true)) {
+			inFs.get().getPath("/");
 			remapper.process(progressLogger, inFs.get().getPath("/"), outFs.get().getPath("/"));
 		}
 
